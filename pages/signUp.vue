@@ -1,9 +1,9 @@
 <template>
-    <div class="signUp">
-        <v-text-field  v-model="email" placeholder = "Email"> </v-text-field>
-        <v-text-field  v-model="password1" placeholder = "Password" type="password"> </v-text-field>
-        <v-text-field  v-model="password2" placeholder = "Repeat Password" type="password"> </v-text-field>
-        <v-btn block elevation="2" x-large @click="signUp">Submit</v-btn>
+    <div class="signUp text-center">
+        <v-text-field style="color: black;" v-model="email" placeholder = "Email"> </v-text-field>
+        <v-text-field v-model="password1" placeholder = "Password" type="password"> </v-text-field>
+        <v-text-field v-model="password2" placeholder = "Repeat Password" type="password"> </v-text-field>
+        <v-btn  elevation="24" x-large @click="signUp">Submit</v-btn>
 
     </div>
 </template>
@@ -41,15 +41,21 @@ export default {
                 alert(data.error)
             }console.log({ data })
             
-           this.$router.push('./login')
+           this.$router.push('./signUp')
 
 
             } catch (err) {
                 alert(err)
             }
-
+        this.$router.push('./login')
         },
     },
 }
     
 </script>
+
+<style scoped>
+.color {
+    color: black
+}
+</style>

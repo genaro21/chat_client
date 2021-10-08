@@ -1,8 +1,8 @@
 <template>
-    <div class="login">
-        <v-text-field  v-model="email" placeholder = "Email"> </v-text-field>
-        <v-text-field  v-model="password" placeholder = "Password" type="password"> </v-text-field>
-        <v-btn block elevation="2" x-large @click="onLogin">Submit</v-btn>
+    <div class="login text-center">
+       <p class="color"> <v-text-field v-model="email" placeholder = "Email"> </v-text-field></p>
+        <v-text-field v-model="password" placeholder = "Password" type="password"> </v-text-field>
+        <v-btn elevation="24" x-large @click="onLogin">Submit</v-btn>
 
     </div>
 </template>
@@ -39,6 +39,7 @@ export default{
             console.log(data)
             window.localStorage.setItem('token', data.token)
             window.localStorage.setItem('userId', data.userId)
+            window.localStorage.setItem('admin', data.admin)
             this.$router.push('./users')
           } catch (err) {
                 alert(err)
@@ -49,3 +50,8 @@ export default{
 } 
 
 </script>
+
+
+<style scoped>
+
+</style>

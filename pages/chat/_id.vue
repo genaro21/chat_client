@@ -1,7 +1,15 @@
 <template>
     <div class="chat">
-        <div v-for="message in messages" :key="message._id">{{ message.text }}</div> 
-            
+        <div v-for="message in messages" :key="message._id">
+           <p class="texto"> {{ message.text }}</p>
+        </div> 
+
+        <!-- <div>
+            <br>
+            <v-text-field v-model="text" placeholder="New message" class="mens"></v-text-field>
+            <v-btn rounded color="success" @click="createMessage()">Send</v-btn>
+        </div> -->
+
            
     </div>
 </template>
@@ -10,7 +18,11 @@
 export default {
     data() {
         return{
-            messages: []
+            messages: [],
+            // userOneId: '',
+            // userTwoId: '',
+            // userOwnerId: userOneId,
+            // text: '',
         };
     },
     async beforeMount() {
@@ -21,6 +33,30 @@ export default {
         await this.getMessages(token)       
     },
     methods: {
+        // async createMessage(token) {
+        //     const body = {
+        //     userOneId: window.localStorage.getItem('userId'),
+        //     userTwoId: this.$route.params.id,
+        //     userOwnerId:  window.localStorage.getItem('userId'),
+        //     text: this.text, 
+        //     }
+            
+        //     try {
+        //         const res = await fetch('http://localhost:4500/message/create',{
+        //             method: "post",
+        //             headers: {
+        //                  'Content-Type': 'application/json',
+        //                   token: token,
+        //             }
+                
+        //         })
+        //     console.log(res)
+            
+        //     }catch (err) {
+        //         alert(err)
+        //     }
+        // },
+        
         async getMessages(token) {
             try{
                 const userOneId = window.localStorage.getItem('userId')
@@ -56,3 +92,17 @@ export default {
     
 }
 </script>
+<style scoped>
+.texto {
+    color:black;
+    font-size: 22px;
+}
+.mens {
+    background-color: black;
+    border-radius: 20px;
+    font-size: 20px;
+}
+.boton {
+    
+}
+</style>
